@@ -1,0 +1,62 @@
+@import '../../../theme/variables.scss';
+
+fieldset {
+    margin-top: 1.5rem;
+    &.scancard,
+    &.checkout-review {
+        margin-top: 0;
+    }
+}
+
+.shippable-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: height 300ms;
+}
+
+.shippable-wrapper.active {
+    height: 30px;
+    transition: height 300ms;
+}
+
+.shippable {
+    font-size: 12px;
+    padding: 10px;
+
+    .shipping-icon {
+        width: 25px;
+        margin-right: 5px;
+    }
+}
+
+////////////////////////////////
+// Use as billing address
+.use-as-billing {
+    background: $color-ghost;
+    position: relative;
+    .place {
+        padding: 0 35px 0 10px;
+        font-size: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .checkbox {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        right: -15px;
+        top: -15px;
+    }
+    .billing-use.active {
+        color: $color-333;
+        overflow: hidden;
+        width: 100px !important;
+    }
+    input {
+        color: $color-black;
+        height: 20px;
+        margin-right: 10px;
+        width: 20px;
+    }
+}

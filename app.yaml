@@ -1,0 +1,35 @@
+# More information here: https://cloud.google.com/appengine/docs/python/config/appref
+# (runtime: python27 in the documentation but still applicable)
+
+# [START runtime]
+runtime: nodejs
+# threadsafe: yes
+env: flex
+# [END runtime]
+
+handlers:
+
+- url: /(.+)
+  static_files: dist/\1
+  upload: dist/(.*)
+
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+
+# Temporary setting to keep gcloud from uploading not required files for deployment
+skip_files:
+- ^node_modules$
+# - ^app\.yaml
+- ^README\..*
+- \.gitignore
+- \.gitattributes
+- ^\.git$
+- ^src$
+- ^e2e$
+- \.editorconfig
+- ^karma\.config\.js
+- \.sass-lint.yml
+- npm-debug.log
+- ^protractor\.conf\.js
+- ^tslint\.json

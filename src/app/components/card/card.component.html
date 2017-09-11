@@ -1,0 +1,43 @@
+<div class="cc-info" [formGroup]="cardForm">
+    <div class="input-contact">
+        <span class="card-type-icon {{cardIcon}}"></span>
+        <label
+          [hidden]="!cardForm.controls.number.valid && !cardForm.controls.number.pristine"
+          [class.active]="cardForm.controls.number.valid">Credit Card Details</label>
+        <input type="text" type="tel" class="card-number" formControlName="number" maxlength="{{cardNumberMaxLength}}" required
+          (focus)="onFocus($event)"
+          (blur)="onBlur($event)"
+          (keyup)="formatCard(cardForm.controls.number.value)"
+          [value]="(getCustomerCard | async).number | ccFormatter">
+        <label class="active error" [hidden]="cardForm.controls.number.valid || cardForm.controls.number.pristine">
+            Credit Card Number is required.
+        </label>
+    </div>
+    <div class="input-contact">
+        <label
+          [hidden]="!cardForm.controls.expiration.valid && !cardForm.controls.expiration.pristine"
+          [class.active]="cardForm.controls.expiration.valid">MM/YY</label>
+        <input type="tel" class="expiration" formControlName="expiration" maxlength="5" required
+          (focus)="onFocus($event)"
+          (blur)="onBlur($event)"
+          (keyup)="formatExpiration(cardForm.controls.expiration.value)"
+          [value]="(getCustomerCard | async).expiration | expFormatter">
+        <label class="active error" [hidden]="cardForm.controls.expiration.valid || cardForm.controls.expiration.pristine">
+            Expiration is required.
+        </label>
+        <span class="ion-calendar"></span>
+    </div>
+    <div class="input-contact">
+        <label
+          [hidden]="!cardForm.controls.cvc.valid && !cardForm.controls.cvc.pristine"
+          [class.active]="cardForm.controls.cvc.valid">CVC</label>
+        <input type="tel" class="cvc" formControlName="cvc"  maxlength="4" required
+          (focus)="onFocus($event)"
+          (blur)="onBlur($event)"
+          [value]="(getCustomerCard | async).cvc">
+        <label class="active error" [hidden]="cardForm.controls.cvc.valid || cardForm.controls.cvc.pristine">
+            CVC is required.
+        </label>
+        <span class="ion-locked"></span>
+    </div>
+</div>

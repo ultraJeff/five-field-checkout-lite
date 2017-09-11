@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <header class="box-header" [class.menu-is-open]=isNavTriggerClicked>
+        <div class="box-back">
+            <a href="cart"><img src="/assets/logo-sm.png" alt="Back to cart"></a>
+        </div>
+        <span class="box-primary-nav-trigger" (click)="onNavTriggerClick($event)">
+            <span class="box-menu-text">Menu</span><span class="box-menu-icon" [class.is-clicked]=isNavTriggerClicked></span>
+        </span>
+    </header>
+    <!-- end box-header -->
+    <!-- nav -->
+    <nav>
+        <ul class="box-primary-nav" [class.is-visible]=isNavTriggerClicked>
+            <li class="box-label">Select Workflow:</li>
+            <li><a routerLink="/cart" (click)="setMapsWorkflow()"><i class="ion-ios-circle-filled"></i><span>Place</span><i class="ion-ios-circle-filled"></i></a></li>
+            <li class="box-label small">(Uses Google Places API to manage locations/addresses, and Google Vision API as a credit card reader)</li>
+            <li><a routerLink="/cart" (click)="setPaymentWorkflow()"><i class="ion-ios-circle-filled"></i><span>Payment Request</span><i class="ion-ios-circle-filled"></i></a></li>
+            <li class="box-label small">(Uses PaymentRequest API to manage all Five Fields, with addional shipping options parameters)</li>
+            <li><a routerLink="/cart" (click)="setNLPWorkflow()"><i class="ion-ios-circle-filled"></i><span>Natural Language</span><i class="ion-ios-circle-filled"></i></a></li>
+            <li class="box-label small">(Uses Google Web Speech API and API.AI to create a voice activated, bot enabled checkout)</li>
+            <li class="box-label top">About Us</li>
+            <li class="box-label small about">This app is a <span><strong>SAPIENTRAZORFISH<span style="color:#0030FF;padding:0;">_</span></strong>
+                </span> prototype that explores the "Five Field Checkout" concept, using Google's Cloud Platform services. As of March, 2017 we have 3 example workflows illustrating simplified user "checkout" for mobile browser e-commerce transactional sites. This prototype is best used with Chrome Mobile (v53) on Android.</li>
+        </ul>
+    </nav>
+    <!-- end nav -->
+</div>

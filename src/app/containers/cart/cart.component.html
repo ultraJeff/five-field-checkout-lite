@@ -1,0 +1,10 @@
+<main class="container">
+    <div class="cart-container">
+        <item-list [_items]="_items | async" [_quantityTotal]="_quantityTotal | async" [_priceTotal]="_priceTotal | async"></item-list>
+
+        <button *ngIf="(_workflow | async) === 'maps'" type="button" class="btn btn-box" routerLink="/checkout">Checkout</button>
+        <button *ngIf="(_workflow | async) === 'payment'" type="button" class="btn btn-box" (click)="onPaymentRequestShow()">Checkout</button>
+        <app-nlp-ai *ngIf="(_workflow | async) === 'nlp'"></app-nlp-ai>
+    </div>
+    <pre id="msg" *ngIf="(_workflow | async) === 'payment'" class="col-xs-12"></pre>
+</main>

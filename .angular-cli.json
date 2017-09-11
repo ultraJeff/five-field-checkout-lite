@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "five-field-checkout"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "app/preloader.component.css",
+        "manifest.json"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "defaults": {
+    "styleExt": "scss",
+    "component": {
+      "inlineStyle": false,
+      "inlineTemplate": false
+    }
+  }
+}

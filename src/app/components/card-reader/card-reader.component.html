@@ -1,0 +1,18 @@
+<label for="use-camera"
+  tabindex="0"
+  class="scan-tooltip btn">
+  Scan card
+  <span *ngIf="!loading" class="ion-ios-camera" aria-hidden="true"></span>
+  <span *ngIf="loading">
+  	<div class="spinner">
+  	    <div class="double-bounce1"></div>
+  	    <div class="double-bounce2"></div>
+  	</div>
+  </span>
+
+  <input id="use-camera"
+    type="file"
+    accept="image/*"
+    (change)="scanCard($event)">
+</label>
+<p class="reader-message">{{cardReaderMessage}}</p>

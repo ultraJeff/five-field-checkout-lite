@@ -1,0 +1,48 @@
+.preloader {
+  background-color: #e8e8e8;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+.preloader .pre-container {
+  bottom: auto;
+  left: 50%;
+  position: absolute;
+  right: auto;
+  text-align: center;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.preloader .spinner {
+  height: 40px;
+  margin: auto;
+  position: relative;
+  width: 40px;
+}
+.preloader .double-bounce1,
+.preloader .double-bounce2 {
+  animation: bounce 2s infinite ease-in-out;
+  background-color: #87b167;
+  border-radius: 50%;
+  height: 100%;
+  left: 0;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.preloader .double-bounce2 {
+  animation-delay: -1s;
+}
+@keyframes bounce {
+  0%,
+    100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}

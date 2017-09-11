@@ -1,0 +1,36 @@
+@import '../../../theme/variables.scss';
+
+////////////////////////////////
+// Order Totals
+.input-contact {
+  background: $color-white;
+
+  span {
+    color: $color-ccc;
+    font-size: 1.2rem;
+    left: 1rem;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  em {
+      color: $color-terracotta;
+      position: absolute;
+      right: 1rem;
+      top: 20%;
+  }
+  strong {
+      color: $color-green;
+      font-size: 1rem;
+      font-weight: normal;
+      position: absolute;
+      right: 1rem;
+      top: 30%;
+
+      &.shipping-chosen {
+        right: 7rem;
+      }
+  }
+}

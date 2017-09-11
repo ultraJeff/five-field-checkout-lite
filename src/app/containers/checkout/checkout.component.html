@@ -1,0 +1,86 @@
+<main class="container">
+    <section class="checkout">
+        <!-- Worth noting: you only need either 'name' OR 'formControlName' on an input for Angular 2 Reactive forms to register them -->
+        <form [formGroup]="checkoutForm" (ngSubmit)="submit(checkoutForm)" novalidate>
+            <fieldset>
+                <div class="input-contact">
+                    <label
+                        [hidden]="!checkoutForm.controls.name.valid && !checkoutForm.controls.name.pristine"
+                        [class.active]="checkoutForm.controls.name.valid">Full Name</label>
+                    <input type="text" formControlName="name" required
+                        (focus)="onFocus($event)"
+                        (blur)="onBlur($event)"
+                        [(ngModel)]="customerData.name">
+                    <!-- instead of [(ngModel)]="customerData.name", you could also do [value]="(customer | async).name for the same effect. not sure which is better! -->
+                   <label class="active error" [hidden]="checkoutForm.controls.name.valid || checkoutForm.controls.name.pristine">
+                        Name is required.
+                   </label>
+                </div>
+                <div class="input-contact">
+                    <label
+                        [hidden]="!checkoutForm.controls.shippingAddress.valid && !checkoutForm.controls.shippingAddress.pristine"
+                        [class.active]="checkoutForm.controls.shippingAddress.valid">Shipping Address</label>
+                    <input class="checkoutAddress" type="text" formControlName="shippingAddress" #autocomplete placeholder="" required
+                        (focus)="onFocus($event)"
+                        (blur)="onBlur($event)"
+                        (input)="onInput()"
+                        [(ngModel)]="customerData.shippingAddress">
+                    <label class="active error" [hidden]="checkoutForm.controls.shippingAddress.valid || checkoutForm.controls.shippingAddress.pristine">
+                        Address is required.
+                    </label>
+                </div>
+                <!-- Need to add an email validator here -->
+                <div class="input-contact">
+                    <label
+                        [hidden]="!checkoutForm.controls.email.valid && !checkoutForm.controls.email.pristine"
+                        [class.active]="checkoutForm.controls.email.valid">Email</label>
+                    <input type="email" formControlName="email" required
+                        (focus)="onFocus($event)"
+                        (blur)="onBlur($event)"
+                        [(ngModel)]="customerData.email">
+                    <label class="active error" [hidden]="checkoutForm.controls.email.valid || checkoutForm.controls.email.pristine">
+                        Email is required.
+                    </label>
+                </div>
+                <div class="input-contact">
+                    <label
+                        [hidden]="!checkoutForm.controls.phone.valid && !checkoutForm.controls.phone.pristine"
+                        [class.active]="checkoutForm.controls.phone.valid">Phone</label>
+                    <input type="tel" formControlName="phone" id="form-phone" maxlength="14" required
+                        (focus)="onFocus($event)"
+                        (blur)="onBlur($event)"
+                        (keyup)="formatPhone(checkoutForm.controls.phone.value)"
+                        [(ngModel)]="customerData.phone">
+                    <label class="active error" [hidden]="checkoutForm.controls.phone.valid || checkoutForm.controls.phone.pristine">
+                        Phone is required.
+                    </label>
+                </div>
+            </fieldset>
+            <div class="shippable-wrapper" [class.active]="shippable">
+                <div class="shippable">
+                    <img class="shipping-icon" src="./assets/shipping-truck-icon-grey.png">
+                    Congratulations, this address is shippable!
+                </div>
+            </div>
+            <!-- TODO: Separate the Use as Billing Address component and hook it up to the rest of the app. Currently, this is a stub/placeholder component -->
+            <fieldset class="use-as-billing" id="form-cc" *ngIf="addressName">
+                <label for="billing" class="col-md-10 place">Use <span class="billing-use active">{{addressName}}</span> as billing address</label>
+                <div class="col-md-2 checkbox">
+                    <input type="checkbox" id="billing">
+                </div>
+            </fieldset>
+            <fieldset>
+                <app-card [group]="checkoutForm.controls.card"></app-card>
+            </fieldset>
+            <fieldset class="scancard">
+                <app-card-reader [cardReaderMessage]="cardReaderMessage"
+                (cardReaderComplete)="handleCardReaderComplete($event)"></app-card-reader>
+            </fieldset>
+            <fieldset class="checkout-review">
+                <app-checkout-totals></app-checkout-totals>
+            </fieldset>
+            <button type="submit" class="btn btn-box" [disabled]="!checkoutForm.valid">Review Order</button>
+        </form>
+        <app-nlp-ai *ngIf="(workflow | async) === 'nlp'"></app-nlp-ai>
+    </section>
+</main>

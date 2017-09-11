@@ -1,0 +1,33 @@
+@import '../../../theme/variables.scss';
+
+
+////////////////////////////////
+// Scan Card
+label {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  color: $color-999;
+  display: inline-flex;
+  height: 5.5rem;
+  justify-content: space-between;
+  width: 13.5rem;
+  outline: 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  span {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+input {
+  display: none;
+}
+
+.reader-message {
+  margin-left: 13px;
+}

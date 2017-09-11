@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#87b167">
+    <title>Five Field Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="For Internal Use Only" />
+    <meta property="og:title" content="Five Field Checkout" />
+    <meta property="og:description" content="For Internal Use Only" />
+    <meta property="og:image" content="assets/icon.png" />
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-homescreen-white.png">
+    <meta name="apple-mobile-web-app-title" content="Five Field Checkout">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!-- Hack to load the preloader CSS before Angular bootstrapping completes -->
+    <link rel="stylesheet" href="app/preloader.component.css">
+    <script src="https://storage.googleapis.com/prshim/v1/payment-shim.js"></script>
+    <!-- <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"> </script> -->
+</head>
+
+<body>
+    <razorfish-app>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="pre-container">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end Preloader -->
+    </razorfish-app>
+</body>
+</html>

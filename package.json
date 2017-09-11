@@ -1,0 +1,57 @@
+{
+  "name": "five-field-checkout",
+  "description": "Boiling down the complexity of mobile web e-commerce, down to just five fields, using some interesting GCP products...",
+  "version": "4.1.0",
+  "author": "Jeff Franklin for SapientRazorfish_",
+  "engines": {
+    "node": "7.3.0"
+  },
+  "license": "MIT",
+  "angular-cli": {},
+  "scripts": {
+    "start": "node server.js",
+    "gcpdeploy": "ng build --prod && gcloud app deploy --verbosity=info --stop-previous-version",
+    "monitor": "nodemon server.js",
+    "ghdeploy": "ng github-pages:deploy",
+    "lint": "tslint \"src/**/*.ts\""
+  },
+  "private": true,
+  "dependencies": {
+    "@agm/core": "^1.0.0-beta.0",
+    "@angular/animations": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "@google-cloud/speech": "^0.9.1",
+    "@google-cloud/vision": "^0.11.2",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^2.2.1",
+    "apiai": "^4.0.2",
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "core-js": "^2.4.1",
+    "express": "^4.14.1",
+    "ngrx-store-freeze": "^0.1.9",
+    "reselect": "^3.0.0",
+    "rxjs": "^5.1.0",
+    "uuid": "^3.0.1",
+    "yarn": "^0.24.5",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@types/googlemaps": "^3.26.4",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^2.1.1",
+    "nodemon": "^1.11.0",
+    "ts-node": "~2.0.0",
+    "tslint": "~4.5.0",
+    "typescript": "~2.2.0"
+  }
+}

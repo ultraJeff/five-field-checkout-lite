@@ -1,0 +1,27 @@
+<div class="cart-header">
+  <h2>Your Cart</h2>
+  <p class="cart-item-total">{{_quantityTotal}} Items</p>
+</div>
+
+<fieldset *ngFor="let _item of _items">
+  <div class="cart-item" *ngIf="((_workflow | async) !== 'nlp') || ((_workflow | async) === 'nlp' && _item.quantity !== 0)">
+    <div class="col-md-4 cart-item-img">
+      <img src={{_item.imgUrl}} alt={{_item.imgAlt}}>
+    </div>
+    <div class="col-md-8 cart-item-description">
+      <h3>{{_item.title}}</h3>
+      <div class="price-container">
+        <p>${{_item.price | number:'1.2-2'}}</p>
+        <select name="quantity" id="cart-item-quantity" [ngModel]="_item.quantity" (change)="changeQuantity($event, _item)">
+          <option *ngFor="let v of [0,1,2,3,4,5]" [value]="v">{{v}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</fieldset>
+<fieldset>
+  <div class="cart-total">
+      <span>Order Total</span>
+      <em>${{_priceTotal | number:'1.2-2'}}</em>
+  </div>
+</fieldset>

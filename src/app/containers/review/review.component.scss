@@ -1,0 +1,97 @@
+@import '../../../theme/variables.scss';
+
+$circle: 30px;
+
+// Review Page
+main {
+  ////////////////////////////////
+  // Name, address, email, phone
+  fieldset {
+    margin-top: 1.5rem;
+
+    .col-md-6 {
+      padding: 0;
+    }
+  }
+
+  .input-contact {
+    background: $color-white;
+
+    span {
+      color: $color-666;
+      font-size: 1.2rem;
+      left: 1rem;
+      position: absolute;
+      text-transform: uppercase;
+      top: 50%;
+      transform: translateY(-50%)
+    }
+  }
+
+  ////////////////////////////////
+  // Submit (Checkout) Button
+  .btn-box {
+    background: $color-green;
+    border-radius: 0;
+    color: $color-white;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    padding: 10px 50px;
+    text-transform: uppercase;
+    width: 100%;
+
+    &.back {
+      background-color: $color-red;
+    }
+
+    &:hover,
+    &:focus {
+      background: $color-terracotta;
+      color: $color-chipotle;
+    }
+  }
+}
+
+.item-review {
+  background-color: white;
+  display: flex;
+  margin: 15px 0;
+
+  .item {
+    position: relative;
+    width: 33.33%;
+    height:100px;
+    background-position: center;
+    background-size:80%;
+    background-repeat: no-repeat;
+    border: 1px solid #e8e8e8;
+
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    span {
+      background-image: url(../../../assets/bubble.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0;
+      color:#FF0;
+      height: $circle;
+      line-height: 1;
+      padding-top: $circle / 4;
+      position: absolute;
+      right: -$circle / 4;
+      text-align: center;
+      top: -$circle / 3;
+      width: $circle;
+      z-index: 10;
+      opacity:.6
+      ;
+    }
+  }
+}

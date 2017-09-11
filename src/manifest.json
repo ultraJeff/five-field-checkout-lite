@@ -1,0 +1,17 @@
+{
+	"name": "SapientRazorfish Five Field Checkout",
+	"orientation": "portrait-primary",
+	"short_name": "Five Field Checkout",
+	"start_url": "https://five-field-checkout.appspot.com/",
+	"display": "standalone",
+	"background_color": "#e8e8e8",
+	"theme_color": "#f4846e",
+	"description": "SapientRazorfish_ app exploring the Five Field Checkout concept using Google's Cloud Platform services.",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "48x48 72x72 96x96 128x128 192x192 256x256"
+		}
+	]
+}

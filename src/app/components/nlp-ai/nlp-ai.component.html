@@ -1,0 +1,7 @@
+<div *ngIf="apiaiSpeech" class="well">{{apiaiSpeech | speechSynthesis}}</div>
+<span *ngIf="!loading" class="speaker" (click)="toggleOnClick()" #nlp></span>
+
+<div class="spinner" *ngIf="loading">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+</div>

@@ -1,0 +1,249 @@
+@import '../../../theme/variables.scss';
+
+// Header
+// ======
+.container-fluid {
+  display: block;
+  height: 50px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+
+  .box-header {
+    backface-visibility: hidden;
+    background: $color-terracotta;
+    box-shadow: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    transition: background-color .3s;
+    width: 100%;
+    z-index: 3;
+
+    .is-fixed {
+      background-color: $color-white-alpha;
+      position: fixed;
+      top: -80px;
+      transition: transform .3s;
+    }
+
+    &.is-visible {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &.menu-is-open {
+      background-color: $color-white-alpha;
+      z-index: 6;
+    }
+
+    .box-logo {
+      display: block;
+      left: 5px;
+      position: absolute;
+      top: 66px;
+      vertical-align: middle;
+
+      img {
+        border: 1px solid $color-eee;
+      }
+    }
+
+    .box-back {
+      color: $color-chipotle;
+      display: block;
+      vertical-align: middle;
+
+      a {
+        font-weight: bold;
+        line-height: 1em;
+        text-decoration: none;
+        vertical-align: middle;
+      }
+
+      i {
+        color: $color-chipotle;
+        font-size: 150%;
+        margin: 0 5px 0 0;
+        padding: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // Nav
+  // ===
+  .box-primary-nav {
+    backface-visibility: hidden;
+    background: $color-black-alpha;
+    height: 100%;
+    left: 0;
+    list-style: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 50px 0 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    transform: translateY(-100%);
+    transition-duration: .4s;
+    transition-property: transform;
+    width: 100%;
+    z-index: 5;
+
+    li {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin: .2em 0;
+      text-transform: capitalize;
+    }
+
+    a {
+      font-size:18px;
+    }
+
+    span {
+      border-radius: .25em;
+      color: $color-white;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: .4em 1em;
+      text-decoration: none;
+      transition: all .2s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        color: $color-ddd;
+        text-decoration: none;
+      }
+    }
+
+    .box-label {
+      color: $color-green;
+      font-size: 17px;
+      font-weight: 700;
+      margin: 2.4em 0 .8em;
+      text-transform: uppercase;
+    }
+    .box-label.small {
+      margin-top:0;
+      font-size:70%;
+      padding:0 50px;
+    }
+    .box-label.top {
+      margin:0 30px .8em;
+      padding-top:4em;
+    }
+  .box-label.about span {
+      font-family:arial;
+      font-size:11px;
+      color:#999;
+      line-height:13px;
+      padding:0px;
+      margin:0px;
+    }
+    .box-social {
+      display: inline-block;
+      margin: 10px .4em;
+
+      span {
+        cursor: pointer;
+        font-size: 30px;
+        height: 30px;
+        padding: 0;
+        width: 30px;
+      }
+    }
+
+    &.is-visible {
+      transform: translateY(0);
+    }
+  }
+
+
+  ////////////////////////////////////////////////////
+  //////////////////////////// Box Primary Nav Trigger
+  ////////////////////////////////////////////////////
+  .box-primary-nav-trigger {
+    background-color: transparent;
+    bottom: auto;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 1em;
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+
+    .box-menu-text {
+      color: $color-chipotle;
+      display: inline-block;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .box-menu-icon {
+      background-color: $color-chipotle;
+      bottom: auto;
+      display: inline-block;
+      height: 2px;
+      left: auto;
+      list-style: none;
+      position: absolute;
+      right: 1em;
+      top: 50%;
+      transform: translateX(0) translateY(-50%);
+      transition: background-color .3s;
+      width: 18px;
+
+      &::before {
+        top: -5px;
+      }
+
+      &::after {
+        top: 5px;
+      }
+
+      &::after,
+      &::before {
+        background-color: $color-chipotle;
+        content: '';
+        height: 100%;
+        position: absolute;
+        right: 0;
+        transition: transform .3s, top .3s, background-color 0s;
+        width: 100%;
+      }
+
+      &.is-clicked {
+        background-color: transparent;
+
+        &::before {
+          background-color: $color-666;
+          top: 0;
+          transform: rotate(135deg);
+        }
+
+        &::after {
+          background-color: $color-666;
+          top: 0;
+          transform: rotate(225deg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  header img {
+    margin-left: -25px;
+  }
+}

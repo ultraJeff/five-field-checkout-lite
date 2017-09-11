@@ -1,0 +1,42 @@
+<main class="container">
+    <form action="" method="post" id="fiveFieldCheckout" class="checkout">
+        <fieldset>
+            <div class="input-contact">
+                <span><strong>Name:</strong> {{(customer | async).name}}</span>
+            </div>
+            <div class="input-contact">
+                <span><strong>Billing Address:</strong> {{(customer | async).billingAddress}}</span>
+            </div>
+            <div class="input-contact">
+                <span><strong>Shipping Address:</strong> {{(customer | async).shippingAddress}}</span>
+            </div>
+            <div class="input-contact">
+                <span><strong>Phone:</strong> {{(customer | async).phone}}</span>
+            </div>
+            <div class="input-contact">
+                <span><strong>Credit Card:</strong> Ends with {{(customer | async).card.number.slice(-4)}} <strong>Exp:</strong>  {{(customer | async).card.expiration}}</span>
+            </div>
+        </fieldset>
+        <div class="item-review">
+            <div *ngFor="let item of (items | async)"
+                class="item"
+                [ngStyle]="{'background-image': 'url(' + item.imgUrl + ')'}">
+                <span>{{item.quantity}}</span>
+            </div>
+        </div>
+        <fieldset class="total">
+            <app-checkout-totals></app-checkout-totals>
+        </fieldset>
+        <fieldset>
+            <div class="col-md-6">
+                <a *ngIf="(workflow | async) === 'maps'" routerLink="/checkout" class="btn btn-box back">Edit Details</a>
+                <a *ngIf="(workflow | async) === 'payment'" routerLink="/cart" [queryParams]="{pr: true}" class="btn btn-box back">Edit Details</a>
+            </div>
+            <div class="col-md-6">
+                <button *ngIf="(workflow | async) === 'maps'" type="submit" class="btn btn-box" (click)="onSubmit($event)">Place Secure Order <i class="ion-android-lock"></i></button>
+                <button *ngIf="(workflow | async) === 'payment'" type="submit" class="btn btn-box" (click)="onSubmit($event)">Place Secure Order <i class="ion-android-lock"></i></button>
+            </div>
+        </fieldset>
+    </form>
+    <app-nlp-ai *ngIf="(workflow | async) === 'nlp'" (nlpAiComplete)="onSubmit($event)"></app-nlp-ai>
+</main>

@@ -1,0 +1,18 @@
+<div class="input-contact">
+    <span>Order Total</span>
+    <em>{{subtotal | async | currency:'USD':true:'1.2-2'}}</em>
+</div>
+<div class="input-contact">
+    <span>Shipping and Handling</span>
+    <strong *ngIf="!(shipping | async).type">FREE SHIPPING</strong>
+    <strong *ngIf="(shipping | async).type" class="shipping-chosen">{{(shipping | async).type | uppercase}}</strong>
+    <em *ngIf="(shipping | async).type">{{(shipping | async).amount | currency:'USD':true:'1.2-2'}}</em>
+</div>
+<div class="input-contact">
+    <span>Estimated Tax</span>
+    <em>$0.00</em>
+</div>
+<div class="input-contact">
+    <span>Amount Due</span>
+    <em>{{total | async | currency:'USD':true:'1.2-2'}}</em>
+</div>
