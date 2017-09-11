@@ -1,7 +1,7 @@
 {
   "name": "five-field-checkout",
   "description": "Boiling down the complexity of mobile web e-commerce, down to just five fields, using some interesting GCP products...",
-  "version": "4.1.0",
+  "version": "1.0.0",
   "author": "Jeff Franklin for SapientRazorfish_",
   "engines": {
     "node": "7.3.0"
